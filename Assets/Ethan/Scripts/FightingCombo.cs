@@ -243,7 +243,26 @@ namespace EB
             timer = attack.length;
             animator.Play(attack.name, -1, 0);
             Debug.Log($"Attack triggered: {attack.name}");
+            // Set the trigger and IsAttacking to true
+            animator.ResetTrigger("AttackTrigger"); // Reset first to clear any previous trigger
+            animator.SetTrigger("AttackTrigger");   // Trigger the current attack
+            animator.SetBool("IsAttacking", true);  // Set IsAttacking to true
+
+            // Start coroutine to reset IsAttacking after attack duration
+            StartCoroutine(ResetToIdleAfterAttack(attack.length));
         }
+
+
+
+        IEnumerator ResetToIdleAfterAttack(float attackDuration)
+        {
+            yield return new WaitForSeconds(attackDuration);
+
+            // Reset IsAttacking and the AttackTrigger
+            animator.SetBool("IsAttacking", false);  // Transition back to idle
+            animator.ResetTrigger("AttackTrigger");  // Ensure trigger is reset
+        }
+
 
         Attack getAttackFromType(AttackType t)
         {
