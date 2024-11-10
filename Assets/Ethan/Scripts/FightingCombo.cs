@@ -36,6 +36,8 @@ namespace EB
         private InputAction lightAction;
         private InputAction kickAction;
 
+        private PlayerLocomotion playerLocomotion;
+
         private void Awake()
         {
             playerInput = new PlayerInput();
@@ -77,11 +79,13 @@ namespace EB
                 combos = new List<Combo>();  // Initialize combos if it's null
             }
 
+            playerLocomotion = GetComponentInParent<PlayerLocomotion>();
+
             animator = GetComponent<Animator>();
             PrimeCombos();
         }
 
-        void Update()
+        public void Update()
         {
             // If there's an active attack, update the timer
             if (curAttack != null)
@@ -117,7 +121,7 @@ namespace EB
         }
 
 
-        void PrimeCombos()
+        public void PrimeCombos()
         {
             if (combos == null || combos.Count == 0)
             {
@@ -145,7 +149,7 @@ namespace EB
         }
 
 
-        void OnAttackInput(ComboInput input)
+        public void OnAttackInput(ComboInput input)
         {
             if (input == null)
             {
@@ -225,7 +229,7 @@ namespace EB
 
 
 
-        void ResetCombos()
+        public void ResetCombos()
         {
             leeway = 0;  // Reset leeway
             for (int i = 0; i < currentCombos.Count; i++)
@@ -237,7 +241,7 @@ namespace EB
             Debug.Log("Combos reset.");
         }
 
-        void Attack(Attack attack)
+        public void Attack(Attack attack)
         {
             curAttack = attack;
             timer = attack.length;
@@ -250,11 +254,16 @@ namespace EB
 
             // Start coroutine to reset IsAttacking after attack duration
             StartCoroutine(ResetToIdleAfterAttack(attack.length));
+
+            if (playerLocomotion != null)
+            {
+                playerLocomotion.StartAttackMovement(attack.length);
+            }
         }
 
+        
 
-
-        IEnumerator ResetToIdleAfterAttack(float attackDuration)
+        public IEnumerator ResetToIdleAfterAttack(float attackDuration)
         {
             yield return new WaitForSeconds(attackDuration);
 
@@ -264,7 +273,7 @@ namespace EB
         }
 
 
-        Attack getAttackFromType(AttackType t)
+        public Attack getAttackFromType(AttackType t)
         {
             // Your logic to return the correct attack based on the type
             if (t == AttackType.heavy)

@@ -12,6 +12,8 @@ namespace EB
         
         public float moveAmount;
 
+        public float originalMoveAmount;
+
         PlayerInput inputActions;
 
         Vector2 movementInput;
@@ -21,6 +23,11 @@ namespace EB
             inputActions = new PlayerInput();
             inputActions.PlayerMovement.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
             inputActions.Enable();
+        }
+
+        private void Start()
+        {
+            originalMoveAmount = moveAmount;
         }
 
         public void OnDisable()
@@ -38,8 +45,9 @@ namespace EB
         {
             horizontal = movementInput.x;
             moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal));
-            
+
         }
+
 
     }
 }

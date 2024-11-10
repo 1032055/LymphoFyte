@@ -19,6 +19,10 @@ namespace EB
         [Header("Stats")]
         public float movementSpeed = 5;
         public float rotationSpeed = 10;
+        public float originalMovementSpeed;
+        public float attackSlowMultiplier = 0.1f;
+
+        FightingCombo fightingCombo;
 
         // Start is called before the first frame update
         void Start()
@@ -28,6 +32,10 @@ namespace EB
             animationHandler = GetComponentInChildren<AnimationHandler>();
             myTransform = transform;
             animationHandler.Initialize();
+
+            originalMovementSpeed = movementSpeed;
+
+            fightingCombo = GetComponentInChildren<FightingCombo>();
         }
 
         // Update is called once per frame
@@ -47,6 +55,29 @@ namespace EB
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, rb.velocity.z);
 
             animationHandler.UpdateAnimatorValues(horizontalInput, 0);
+        }
+
+        public void StartAttackMovement(float delay)
+        {
+            movementSpeed *= attackSlowMultiplier;
+            Debug.Log("is called");
+
+            StartCoroutine(EndAttackAfterDelay(delay));
+        }
+
+
+        public IEnumerator EndAttackAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(1);
+
+            // End slow movement after attack animation completes
+            EndAttackMovement();
+            
+        }
+        public void EndAttackMovement()
+        {
+            movementSpeed = originalMovementSpeed;
+            Debug.Log("mevement reset");
         }
     }
 }

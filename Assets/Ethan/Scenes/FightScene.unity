@@ -676,9 +676,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4027907838702776142, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: attackSlowMultiplier
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 5647324077508626819, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
       propertyPath: m_Constraints
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124561308184772226, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: attackSlowMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675770258059940486, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Radius
+      value: 0.21860567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675770258059940486, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.x
+      value: -1.9020125e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675770258059940486, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
