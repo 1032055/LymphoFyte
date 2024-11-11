@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Ethan/Scenes/FightScene.unity
+    guid: a991b5d17a50ea84993972ce00b4a200
   m_configObjects: {}
