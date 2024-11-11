@@ -809,7 +809,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 88
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!136 &1757869669
 CapsuleCollider:
@@ -914,6 +914,46 @@ PrefabInstance:
     - target: {fileID: 316359173412232100, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 990576509829375106, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Size.x
+      value: 0.118103
+      objectReference: {fileID: 0}
+    - target: {fileID: 990576509829375106, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Size.z
+      value: 0.15565796
+      objectReference: {fileID: 0}
+    - target: {fileID: 990576509829375106, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.x
+      value: -0.058769956
+      objectReference: {fileID: 0}
+    - target: {fileID: 990576509829375106, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.y
+      value: -0.012848284
+      objectReference: {fileID: 0}
+    - target: {fileID: 990576509829375106, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.z
+      value: 0.012909896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745575770356102116, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14979355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745575770356102116, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Size.z
+      value: 0.15448242
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745575770356102116, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.x
+      value: 0.061678488
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745575770356102116, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.y
+      value: 0.020458067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745575770356102116, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
+      propertyPath: m_Center.z
+      value: -0.004208531
       objectReference: {fileID: 0}
     - target: {fileID: 2509229503551230035, guid: 9ad7b8dbabc09f94eb8336f3c3e3a705, type: 3}
       propertyPath: m_Name
