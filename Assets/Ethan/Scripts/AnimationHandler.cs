@@ -32,13 +32,13 @@ namespace EB
             {
                 h = -0.5f;
             }
-            else if (horizontalMovement < -0.55f) 
+            else if (horizontalMovement < -0.55f)
             {
                 h = -1;
             }
             else
             {
-                h = 0; 
+                h = 0;
             }
 
             animator.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
