@@ -7,42 +7,47 @@ namespace EB
 {
     public class Damagecollider : MonoBehaviour
     {
-        Collider damageCollider;
+        private Collider damageCollider;
 
-        public float currentDamage = 25;
+        [Header("Damage Settings")]
+        public float currentDamage = 25f;
 
+        [Header("Hand Identifier")]
+        public string handName = "Right"; // Set to "Left" or "Right"
 
-        //private void Awake()
-        //{
-        //    damageCollider = GetComponent<Collider>();
-        //    damageCollider.gameObject.SetActive(true);
-        //    damageCollider.isTrigger = true;
-        //    damageCollider.enabled = false;
-        //}
+        private void Awake()
+        {
+            damageCollider = GetComponent<Collider>();
+            damageCollider.isTrigger = true;
+            damageCollider.enabled = false; // Initially disabled
+        }
 
-        //public void EnabledDamageCollider()
-        //{
-        //    damageCollider.enabled = true;
-        //}
-        
+        public void EnableDamageCollider()
+        {
+            Debug.Log($"{handName} hand collider enabled.");
+            damageCollider.enabled = true;
+        }
 
-        //public void DisabledDamageCollider()
-        //{
-        //    damageCollider.enabled = false;
-        //}
+        public void DisableDamageCollider()
+        {
+            Debug.Log($"{handName} hand collider disabled.");
+            damageCollider.enabled = false;
+        }
 
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.tag == "Hittable")
-        //    {
-        //        PlayerBase playerBase = other.GetComponent<PlayerBase>();
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Hittable"))
+            {
+                PlayerBase playerBase = other.GetComponent<PlayerBase>();
+                playerBase?.TakeDamage(currentDamage);
+            }
 
-        //        if (playerBase != null)
-        //        {
-        //            playerBase.TakeDamage(currentDamage);
-        //        }
-        //    }
-        //}
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyBase enemyBase = other.GetComponent<EnemyBase>();
+                enemyBase?.TakeDamage(currentDamage);
+            }
+        }
     }
 }
 
