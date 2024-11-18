@@ -13,13 +13,13 @@ namespace EB
         public float currentDamage = 25f;
 
         [Header("Hand Identifier")]
-        public string handName = "Right"; // Set to "Left" or "Right"
+        public string handName = "Right";
 
         private void Awake()
         {
             damageCollider = GetComponent<Collider>();
             damageCollider.isTrigger = true;
-            damageCollider.enabled = false; // Initially disabled
+            damageCollider.enabled = false;
         }
 
         public void EnableDamageCollider()
