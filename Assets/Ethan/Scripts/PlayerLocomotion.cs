@@ -23,6 +23,9 @@ namespace EB
         public float attackSlowMultiplier = 0.1f;
 
         FightingCombo fightingCombo;
+
+        public bool isStunned = false;
+
         void Start()
         {
             rb = GetComponent<Rigidbody>();
@@ -39,6 +42,12 @@ namespace EB
         // Update is called once per frame
         public void FixedUpdate()
         {
+            if (isStunned)
+            {
+                rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+                return;
+            }
+
             float delta = Time.deltaTime;
 
             movement.TickInput(delta);
@@ -52,7 +61,6 @@ namespace EB
         public void StartAttackMovement(float delay)
         {
             movementSpeed *= attackSlowMultiplier;
-            Debug.Log("is called");
 
             StartCoroutine(EndAttackAfterDelay(delay));
         }
@@ -67,7 +75,6 @@ namespace EB
         public void EndAttackMovement()
         {
             movementSpeed = originalMovementSpeed;
-            Debug.Log("mevement reset");
         }
     }
 }

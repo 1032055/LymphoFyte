@@ -18,6 +18,7 @@ namespace EB
 
         Vector2 movementInput;
 
+
         public void OnEnable()
         {
             inputActions = new PlayerInput();
@@ -47,6 +48,8 @@ namespace EB
             moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal));
 
         }
+
+
 
 
     }

@@ -37,6 +37,8 @@ namespace EB
 
         private PlayerLocomotion playerLocomotion;
 
+        public bool isStunned = false;
+
         private void Awake()
         {
             playerInput = new PlayerInput();
@@ -145,6 +147,11 @@ namespace EB
 
         public void OnAttackInput(ComboInput input)
         {
+            if (isStunned)
+            {
+                return;
+            }
+
             if (input == null)
             {
                 Debug.LogError("Input is null!");
@@ -230,6 +237,11 @@ namespace EB
 
         public void Attack(Attack attack)
         {
+            if (isStunned)
+            {
+                return;
+            }
+
             curAttack = attack;
             timer = attack.length;
             animator.Play(attack.name, -1, 0);

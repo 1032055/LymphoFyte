@@ -24,13 +24,11 @@ namespace EB
 
         public void EnableDamageCollider()
         {
-            Debug.Log($"{handName} hand collider enabled.");
             damageCollider.enabled = true;
         }
 
         public void DisableDamageCollider()
         {
-            Debug.Log($"{handName} hand collider disabled.");
             damageCollider.enabled = false;
         }
 

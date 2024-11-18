@@ -14,11 +14,16 @@ public class PlayerBase : MonoBehaviour
     public HealthBar healthBar;
 
     Animator animationHandler;
+    FightingCombo fightingCombo;
+    PlayerLocomotion playerLocomotion;
 
+    public bool isStunned;
 
     private void Awake()
     {
         animationHandler = GetComponentInChildren<Animator>();
+        fightingCombo = GetComponentInChildren<FightingCombo>();
+        playerLocomotion = GetComponent<PlayerLocomotion>();
     }
 
     public void Start()
@@ -27,6 +32,13 @@ public class PlayerBase : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    private void Update()
+    {
+        if (isStunned)
+        {
+            return;
+        }
+    }
 
     public void TakeDamage(float damage)
     {
@@ -41,5 +53,45 @@ public class PlayerBase : MonoBehaviour
             currentHealth = 0;
             animationHandler.Play("KnockDown");
         }
+        else
+        {
+            StartCoroutine(Stun(20f));
+        }
+
+
     }
+
+    private IEnumerator Stun(float duration)
+    {
+        isStunned = true;
+
+        if (fightingCombo != null)
+        {
+            fightingCombo.isStunned = true;
+        }
+
+        if (playerLocomotion != null)
+        {
+            playerLocomotion.isStunned = true;
+        }
+
+        Debug.Log("Player movement disabled");
+
+        yield return new WaitForSeconds(0.5f);
+
+        Debug.Log("Player movement is enabled");
+
+        if (fightingCombo != null)
+        {
+            fightingCombo.isStunned = false;
+        }
+
+        if (playerLocomotion != null)
+        {
+            playerLocomotion.isStunned = false;
+        }
+
+        isStunned = false;
+    }
+
 }
