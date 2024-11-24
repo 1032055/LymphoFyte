@@ -16,6 +16,7 @@ public class PlayerBase : MonoBehaviour
     Animator animationHandler;
     FightingCombo fightingCombo;
     PlayerLocomotion playerLocomotion;
+    Collider playerCollider;
 
     public bool isStunned;
 
@@ -24,6 +25,7 @@ public class PlayerBase : MonoBehaviour
         animationHandler = GetComponentInChildren<Animator>();
         fightingCombo = GetComponentInChildren<FightingCombo>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerCollider = GetComponent<Collider>();
     }
 
     public void Start()
@@ -52,6 +54,7 @@ public class PlayerBase : MonoBehaviour
         {
             currentHealth = 0;
             animationHandler.Play("KnockDown");
+            playerCollider.enabled = false;
         }
         else
         {

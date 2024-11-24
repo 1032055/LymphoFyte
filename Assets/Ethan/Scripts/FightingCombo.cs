@@ -63,6 +63,10 @@ namespace EB
 
         private void Start()
         {
+            playerLocomotion = GetComponentInParent<PlayerLocomotion>();
+
+            animator = GetComponent<Animator>();
+
             if (animator == null)
             {
                 Debug.LogError("Animator component not found!");
@@ -80,9 +84,7 @@ namespace EB
                 combos = new List<Combo>();  
             }
 
-            playerLocomotion = GetComponentInParent<PlayerLocomotion>();
 
-            animator = GetComponent<Animator>();
             PrimeCombos();
         }
 

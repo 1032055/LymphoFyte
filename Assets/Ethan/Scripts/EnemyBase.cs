@@ -13,11 +13,12 @@ public class EnemyBase : MonoBehaviour
     public HealthBar healthBar;
 
     Animator animationHandler;
-
+    Collider enemyCollider;
 
     private void Awake()
     {
         animationHandler = GetComponentInChildren<Animator>();
+        enemyCollider = GetComponent<Collider>();
     }
 
     public void Start()
@@ -39,6 +40,7 @@ public class EnemyBase : MonoBehaviour
         {
             currentHealth = 0;
             animationHandler.Play("KnockDown");
+            enemyCollider.enabled = false;
         }
     }
 }
