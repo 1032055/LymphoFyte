@@ -8,6 +8,16 @@ public class Options : MonoBehaviour
 
     [SerializeField] public GameObject OptionsMenu;
 
+    [SerializeField] public GameObject ControlsPopUp;
+ 
+    private void Start()
+    {
+        OptionsMenu.SetActive(false);
+
+        ControlsPopUp.SetActive(false);
+
+        MainMenu.SetActive(true);
+    }
 
     public void LoadOptions()
     {
@@ -25,5 +35,14 @@ public class Options : MonoBehaviour
 
         MainMenu.SetActive(true);
 
+        ControlsPopUp.SetActive(false);
+
+    }
+
+    public void LoadControls()
+    {
+        ControlsPopUp.SetActive(true);
+
+        MainMenu.SetActive(false);
     }
 }
