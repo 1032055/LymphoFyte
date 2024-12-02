@@ -36,7 +36,7 @@ namespace EB
         {
             if (other.CompareTag("Hittable"))
             {
-                PlayerBase playerBase = other.GetComponent<PlayerBase>();
+                PlayerBase playerBase = other.GetComponentInParent<PlayerBase>();
                 playerBase?.TakeDamage(currentDamage);
             }
 
