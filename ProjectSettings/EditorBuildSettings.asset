@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Jaime/Scenes/MainMenu.unity
     guid: 96f13b28377f441139a74412b378edfd
   - enabled: 1
-    path: Assets/Ethan/Scenes/FightScene.unity
+    path: Assets/Ethan/Scenes/FightScene Killer.unity
     guid: a991b5d17a50ea84993972ce00b4a200
+  - enabled: 1
+    path: Assets/Ethan/Scenes/FightScene Memory.unity
+    guid: 0324bcb939f0fc44d945b53937572973
   m_configObjects: {}
