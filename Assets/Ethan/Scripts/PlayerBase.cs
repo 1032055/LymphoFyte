@@ -17,6 +17,7 @@ public class PlayerBase : MonoBehaviour
     FightingCombo fightingCombo;
     PlayerLocomotion playerLocomotion;
     Collider playerCollider;
+    SFXHandler sfxHandler;
 
     public bool isStunned;
 
@@ -50,11 +51,18 @@ public class PlayerBase : MonoBehaviour
 
         animationHandler.Play("GetHit");
 
+        sfxHandler.audioSource.clip = sfxHandler.ough;
+        sfxHandler.audioSource.Play();
+
         if(currentHealth <= 0)
         {
             currentHealth = 0;
             animationHandler.Play("KnockDown");
             playerCollider.enabled = false;
+
+            sfxHandler.audioSource.clip = sfxHandler.DeathSound;
+            sfxHandler.audioSource.Play();
+
         }
         else
         {

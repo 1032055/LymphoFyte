@@ -23,6 +23,7 @@ namespace EB
         public float attackSlowMultiplier = 0.1f;
 
         FightingCombo fightingCombo;
+        SFXHandler sfxHandler;
 
         public bool isStunned = false;
 
@@ -63,6 +64,10 @@ namespace EB
             movementSpeed *= attackSlowMultiplier;
 
             StartCoroutine(EndAttackAfterDelay(delay));
+
+            sfxHandler.audioSource.clip = sfxHandler.punch;
+            sfxHandler.audioSource.Play();
+            
         }
 
 
