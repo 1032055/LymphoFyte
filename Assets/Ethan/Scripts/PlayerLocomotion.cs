@@ -38,6 +38,8 @@ namespace EB
             originalMovementSpeed = movementSpeed;
 
             fightingCombo = GetComponentInChildren<FightingCombo>();
+
+            sfxHandler = GetComponent<SFXHandler>();  
         }
 
         // Update is called once per frame

@@ -27,6 +27,7 @@ public class PlayerBase : MonoBehaviour
         fightingCombo = GetComponentInChildren<FightingCombo>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerCollider = GetComponent<Collider>();
+        sfxHandler = GetComponent<SFXHandler>();
     }
 
     public void Start()
