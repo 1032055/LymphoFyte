@@ -24,7 +24,14 @@ namespace EB
 
         FightingCombo fightingCombo;
 
+<<<<<<< Updated upstream
         // Start is called before the first frame update
+=======
+        SFXhandler sfxHandler;
+
+        public bool isStunned = false;
+
+>>>>>>> Stashed changes
         void Start()
         {
             rb = GetComponent<Rigidbody>();
@@ -36,6 +43,8 @@ namespace EB
             originalMovementSpeed = movementSpeed;
 
             fightingCombo = GetComponentInChildren<FightingCombo>();
+
+            sfxHandler = GetComponent<SFXhandler>();
         }
 
         // Update is called once per frame
@@ -63,6 +72,10 @@ namespace EB
             Debug.Log("is called");
 
             StartCoroutine(EndAttackAfterDelay(delay));
+
+            sfxHandler.audioSource.clip = sfxHandler.punch;
+            sfxHandler.audioSource.Play();
+            
         }
 
 
