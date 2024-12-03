@@ -9,12 +9,16 @@ public class Options : MonoBehaviour
     [SerializeField] public GameObject OptionsMenu;
 
     [SerializeField] public GameObject ControlsPopUp;
+
+    [SerializeField] public GameObject CharacterMenu;
  
     private void Start()
     {
         OptionsMenu.SetActive(false);
 
         ControlsPopUp.SetActive(false);
+
+        CharacterMenu.SetActive(false);
 
         MainMenu.SetActive(true);
     }
@@ -45,4 +49,12 @@ public class Options : MonoBehaviour
 
         MainMenu.SetActive(false);
     }
+
+    public void LoadCharacters()
+    {
+        CharacterMenu.SetActive(true);
+
+        MainMenu.SetActive(false);
+    }
+
 }

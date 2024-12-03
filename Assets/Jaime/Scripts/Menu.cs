@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayGameKiller()
     {
-        SceneManager.LoadScene("FightScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("FightScene Killer", LoadSceneMode.Single);
+    }
+
+    public void PlayGameMemory()
+    {
+        SceneManager.LoadScene("FightScene Memory", LoadSceneMode.Single);
     }
 }
